@@ -100,22 +100,21 @@ DELETE /api/v1/users/${id}
 
 ```JSON
 {
-    "name": "User name",
-    "email": "email@email.com",
-    "cpf": "12345678912",
-    "password": "password"
+    "name": "Gustavo client de Sousa",
+    "cpf": "25874123654",
+    "birth_date": "1999-02-11"
 }
 ```
 
 #### LISTAR TODOS OS CLIENTES
 
 ```http
-  GET /api/v1/users
+  GET /api/v1/clients
 ```
 #### LISTAR UM CLIENTE ESPECIFICO
 
 ```http
-  GET /api/v1/users/${id}
+  GET /api/v1/clients/${id}
 ```
 
 | Parâmetro   | Tipo       | Descrição                                   |
@@ -144,9 +143,9 @@ DELETE /api/v1/users/${id}
 importante: O valor total é tratado no backend;
 ```JSON
 {
-    "user_id": id do vendedor/usuario,
-    "client_id": id do cliente,
-    "items_id": id dos produtos separados por virgula. ex: "1,2,3,6"
+    "user_id": "id do vendedor/usuario",
+    "client_id": "id do cliente",
+    "items_id": "id dos produtos separados por virgula. ex: 1,2,3,6"
 }
 
 ```
@@ -320,7 +319,7 @@ PUT /api/v1/products/${id}
 
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `id`      | `int` | **Obrigatório**. O ID do usuario |
+| `id`      | `int` | **Obrigatório**. O ID do produto |
 
 ```JSON
 {
