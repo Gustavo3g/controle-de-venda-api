@@ -11,6 +11,47 @@
 
 ## Documentação
 
+## Rodando localmente
+
+Clone o projeto
+
+```bash
+$ git clone https://github.com/Gustavo3g/controle-de-venda-api
+```
+
+Entre no diretório do projeto
+
+```bash
+$ cd controle-de-venda-api
+```
+
+Instale as dependências
+
+```bash
+$ composer install
+```
+
+Edite o arquivo .env
+
+```bash
+$ touch .env
+```
+
+Rode as migrações
+
+```bash
+$ php artisan migrate
+```
+
+
+Inicie o servidor
+
+```bash
+$ php artisan serve
+```
+
+
+
 ## USUARIOS
 
 #### CRIAR USUARIO
@@ -40,7 +81,16 @@
     "password": "password"
 }
 ```
-
+```JSON
+Retorno:
+{
+"success": true,
+"bearer_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1MzkxODg2NywiZXhwIjoxNjUzOTIyNDY3LCJuYmYiOjE2NTM5MTg4NjcsImp0aSI6IkpaSklPUlhCQlhrbWNrT2UiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.RQLA6XbZQBpRX5Sliko3Eg1Z-BloJr405nVxhWmQ8l8",
+"expires_in": 3600
+}
+```
+``
+BEARER_TOKEN É ULTILIZADO PARA ACESSAR AS ROTAS A SEGUIR:``
 #### LISTAR TODOS OS USUARIOS
 
 ```http
@@ -340,3 +390,19 @@ DELETE /api/v1/products/${id}
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
 | `id`        | `int`     | **Obrigatório**. O ID do produto |
+----
+
+## POPULAR BANCO DE DADOS [FACTORYS E SEEDS]
+
+### RUN
+
+Criar lotes e produtos respectivamente.
+```bash
+$ php artisan db:seed --class=ProductSeeder
+```
+
+
+Criar clientes e pedidos respectivamente (com pedidos já existentes)
+```bash
+$ php artisan db:seed --class=ClientSeeder
+```

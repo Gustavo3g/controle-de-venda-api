@@ -20,4 +20,9 @@ class Order extends Model
 
     public $incrementing = false;
 
+    public function client()
+    {
+         return $this->belongsTo(Client::class,'id','client_id');
+    }
+
 }

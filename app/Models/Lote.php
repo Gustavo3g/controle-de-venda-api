@@ -10,5 +10,11 @@ class Lote extends Model
     use HasFactory;
 
 
-    protected $fillable = ['manufacturing_date', 'quantity', 'created_at', 'updated_at'];
+    protected $fillable = ['id','manufacturing_date', 'quantity', 'created_at', 'updated_at'];
+
+
+    public function products()
+    {
+        return $this->hasMany(Product::class,'lote_id','id');
+    }
 }
